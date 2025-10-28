@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Player</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="player" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+    </iframe>
+
+    <script>
+        // 1. 從 URL 讀取影片 ID (例如 ?v=VIDEO_ID)
+        const urlParams = new URLSearchParams(window.location.search);
+        const vid = urlParams.get('v');
+
+        if (vid) {
+            // 2. 將其設置為 iframe 的來源
+            // 我們使用 youtube-nocookie.com 來請求，
+            // 因為這個頁面的來源是您自己的網站（一個合法的第三方）
+            const embedUrl = `https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&vq=highres&rel=0&modestbranding=1`;
+            document.getElementById('player').src = embedUrl;
+        }
+    </script>
+</body>
+</html>
