@@ -32,7 +32,7 @@
             // 2. 將其設置為 iframe 的來源
             // 我們使用 youtube-nocookie.com 來請求，
             // 因為這個頁面的來源是您自己的網站（一個合法的第三方）
-            const embedUrl = `https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&vq=highres&rel=0&modestbranding=1`;
+            const embedUrl = `https://www.youtube.com/embed/${vid}?autoplay=1&vq=highres&rel=0&modestbranding=1`;
             document.getElementById('player').src = embedUrl;
         }
     </script>
